@@ -23,8 +23,10 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./src",
     "paths": {
       "react": ["./node_modules/@types/react"],
+      "@utilities/*": ["_utilities/*"],
     }
   },
   "include": [
