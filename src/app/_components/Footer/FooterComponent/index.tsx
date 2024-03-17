@@ -6,15 +6,17 @@ import React from 'react'
 import { usePathname } from 'next/navigation'
 import { Gutter } from 'app/_components/Gutter'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Footer } from 'payload/payload-types'
 
-const FooterComponent = () => {
+const FooterComponent = ({ footer }: { footer: Footer }) => {
   const pathname = usePathname()
 
   return (
     <footer className={noHeaderFooterUrls.includes(pathname) ? classes.hide : ''}>
       <Gutter>
         <ul className={classes.inclusions}>
-          {inclusions.map((inclusion, index) => (
+          {inclusions.map(inclusion => (
             <li key={inclusion.title}>
               <Image
                 src={inclusion.icon}
@@ -29,6 +31,16 @@ const FooterComponent = () => {
           ))}
         </ul>
       </Gutter>
+      <div className={classes.footer}>
+        <Gutter>
+          <div className={classes.wrap}>
+            <Link href="/">
+              <Image src="/logo-white.svg" alt="logo" width={170} height={50} />
+            </Link>
+            <p>{footer.copyright}</p>
+          </div>
+        </Gutter>
+      </div>
     </footer>
   )
 }
