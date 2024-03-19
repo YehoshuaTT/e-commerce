@@ -9,7 +9,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Media } from 'payload/payload-types'
 import { Footer } from '../../../../payload/payload-types'
-import { Button } from 'payload/components'
 
 const FooterComponent = ({ footer }: { footer: Footer }) => {
   const pathname = usePathname()
