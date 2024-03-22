@@ -1,15 +1,14 @@
 import React from 'react'
 import { Metadata } from 'next'
 
-import { Gutter } from '../../_components/Gutter'
-import { RenderParams } from '../../_components/RenderParams'
 import { getMeUser } from '../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
-import LoginForm from './LoginForm'
 
 import classes from './index.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
+import { RenderParams } from 'app/_components/RenderParams'
+import LoginForm from './LoginForm'
 
 export default async function Login() {
   await getMeUser({
@@ -28,6 +27,17 @@ export default async function Login() {
             className={classes.logo}
           />
         </Link>
+      </div>
+      <div className={classes.formWrapper}>
+        <div className={classes.formContainer}>
+          <RenderParams className={classes.params} />
+          <div className={classes.formTitle}>
+            <h3>Welcome</h3>
+            <Image src="/assets/icons/hand.png" alt="hand" width={30} height={30} />
+          </div>
+          <p>Please login here</p>
+          <LoginForm />
+        </div>
       </div>
     </section>
   )
